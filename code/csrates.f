@@ -1,0 +1,244 @@
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C  SUBROUTINE TO CALCULATE THE RATE COEFFICIENTS (K)  C
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+      SUBROUTINE RATES(RADIUS)
+      DOUBLE PRECISION Y(1000),K(10000),ALF(10000,5),BET(10000,5),
+     *   GAM(10000,5),TLOWER(10000,5),TUPPER(10000,5),TOTAL(10),X(10),
+     *   RAD,AUV,H2COL,TEMP,ZETA,ALBEDO,GAMCO,ACCR,HNR,X_G,A_G,MLOSS,V,
+     *   RADIUS,PI,MH,MU,KB,DTMIN,DT,AUV_AV,AVEFF,C,HNRMEAN,H2COLEFF
+      DOUBLE PRECISION GETHNR,GETTEM,GETH2,GETAUV,GETRAD,GETCOR,EARG
+      DOUBLE PRECISION FVOL,L,GETAUVEFF,AUVEFF,FIC,GSTAR,RSCALE,RDUST,
+     *    DELTA_AUV,DIST,GETDIST,BFILL,CFILL,R_STAR,T_STAR,EPSIL,
+     *    HNRMEANDUST,DELTA_H2COLEFF,HNRDUST,GE0,AUVDUST,H2COLDUST,
+     *    H2COLDUSTEFF,GBIN,F(1000,0:200),RBIN,TBIN
+      INTEGER RTYPE(10000),NTR(10000),NREAC,ICO,ICOR,TR,I,J,ICLUMP,
+     *    ICOIP,ICOAP,ISTELLAR,IBIN,IH2,IH,IRUN
+      CHARACTER*500 CLUMPMODE,TEMPMODE
+      DOUBLE PRECISION FRACE,LAMDAE,FOSCE,BANDS,TAUE,GAMMAD,
+     *   BETAE
+      COMMON/BL1/ K,X,TOTAL,ACCR,HNR
+      COMMON/BL2/ MLOSS,V
+      COMMON/BL3/ Y,X_G,A_G,ZETA,ALBEDO,GAMCO,AUV_AV,ICO,GSTAR,GBIN,
+     *   RSCALE,RDUST,DELTA_AUV,ISTELLAR,IBIN,RBIN,TBIN
+      COMMON/BL4/ ALF,BET,GAM,TLOWER,TUPPER,RTYPE,NTR,NREAC,ICOR,ICOIP,
+     *  ICOAP
+      COMMON/BLC/ PI,MH,MU,KB
+      COMMON/CLM/ CLUMPMODE,ICLUMP,FVOL,L,FIC
+      COMMON/BLTEMP/ R_STAR,T_STAR,EPSIL,TEMPMODE
+      COMMON/BLHNR/ F,IH2,IH
+!       
+
+! C  UNSHIELDED PHOTODISSOCIATION RATE OF CO
+      GE0 = 2.4E-10
+
+C  H2 NUMBER DENSITY
+      HNRMEAN = GETHNR(RADIUS)
+!       HNRMEAN = GETHNR(IRUN)
+      IF (CLUMPMODE.EQ.'POROSITY'.AND.ICLUMP.EQ.0) THEN
+            HNR = FIC*HNRMEAN
+      ELSE IF (CLUMPMODE.EQ.'POROSITY'.AND.ICLUMP.EQ.1) THEN	
+            HNR = (HNRMEAN/FVOL)*(1-(1-FVOL)*FIC)
+      ELSE 
+            HNR = HNRMEAN
+      END IF
+      
+      HNRMEANDUST = GETHNR(RDUST)
+      IF (CLUMPMODE.EQ.'POROSITY'.AND.ICLUMP.EQ.0) THEN
+            HNRDUST = FIC*HNRMEANDUST
+      ELSE IF (CLUMPMODE.EQ.'POROSITY'.AND.ICLUMP.EQ.1) THEN	
+            HNRDUST = (HNRMEANDUST/FVOL)*(1-(1-FVOL)*FIC)
+      ELSE 
+            HNRDUST = HNRMEANDUST
+      END IF 
+
+      
+!       WRITE(*,*) IRUN
+      
+      
+      
+      
+      
+C  TEMPERATURE
+      TEMP = GETTEM(RADIUS)
+C  H2 COLUMN DENSITY
+      H2COL = GETH2(RADIUS,HNRMEAN)
+      H2COLDUST = GETH2(RDUST,HNRMEANDUST)
+      H2COLEFF = GETH2(RADIUS,HNR)
+      H2COLDUSTEFF = GETH2(RDUST,HNRDUST)
+      
+      
+C  EFFECTIVE H2 COLUMN DENSITY FROM DUST RADIUS TO RADIAL POINT R      
+      DELTA_H2COLEFF = H2COLDUSTEFF - H2COLEFF
+
+C  RADIAL UV EXTINCTION
+      AUV = GETAUV(H2COL,RADIUS)
+      AUVDUST = GETAUV(H2COLDUST,RDUST)
+      
+C  RADIATION FIELD STRENGTH
+      RAD = GETRAD(AUV)
+
+      
+c  define the effective UV extinction from rdust to radius = distance 
+      DIST = GETDIST(RADIUS)
+      DELTA_AUV = AUVDUST - AUV
+      
+C  H-ATOM ACCRETION RATE
+      ACCR = 0.3*PI*(A_G**2.0)*HNR*X_G*(8.0*KB*TEMP/(PI*MH))**0.5
+
+
+	  
+C  *****CALCULATE REACTION RATES****************************************
+
+      DO J=1,NREAC
+
+C  DETERMINE TEMPERATURE RANGE FOR RATE COEFFICIENTS
+
+C  INITIALISE TEMPERATURE RANGE INDEX
+         TR = 1
+C  IF MULTIPLE TEMP RANGES, FIND THE CLOSEST MATCH TO CURRENT TEMP.
+         IF(NTR(J).GT.1) THEN
+            DTMIN = 1.0E20
+            DO I = 1,NTR(J)
+               IF(TEMP.GE.TLOWER(J,I).AND.TEMP.LT.TUPPER(J,I)) THEN
+                  TR = I
+                  GO TO 201
+               ELSE
+                  DT = ABS(TLOWER(J,I)-TEMP)
+                  IF(ABS(TUPPER(J,I)-TEMP).LT.DT) THEN
+                     DT = ABS(TUPPER(J,I)-TEMP)
+                  END IF
+                  IF(DT.LT.DTMIN) THEN
+                     DTMIN = DT
+                     TR = I
+                  END IF
+               END IF
+            END DO
+         END IF
+
+
+C  COMPUTE RATE COEFFICIENTS BASED ON REACTION TYPE
+
+C  COSMIC RAY PARTICLE RATE
+ 201  IF(RTYPE(J).EQ.1) THEN
+      K(J) = ALF(J,TR)*ZETA
+
+C  COSMIC RAY PHOTO-RATE
+      ELSE IF(RTYPE(J).EQ.2) THEN
+      K(J) = ZETA*ALF(J,TR)*((TEMP/300.0)**BET(J,TR))*GAM(J,TR)
+     *   /(1.0-ALBEDO)
+
+C  PHOTO-REACTION RATE 
+      ELSE IF ((RTYPE(J).EQ.3)) THEN
+      K(J) = RAD*ALF(J,TR)*EARG((GAMCO-GAM(J,TR))*(AUV/AUV_AV))
+      
+c       IF (J.EQ.5740) THEN
+c       WRITE(*,*) K(J),RAD,AUV,
+c      *     (GAMCO-GAM(J,TR))*(AUV/AUV_AV),
+c      *     EARG((GAMCO-GAM(J,TR))*(AUV/AUV_AV))
+c       END IF
+      
+c calculate internal stellar photon rates at RSCALE (50 R*) - scale to integrated flux relative to ISM value
+      ELSE IF(RTYPE(J).EQ.4) THEN
+      K(J) = GSTAR*((RSCALE/DIST)**2)*ALF(J,TR)*EARG(-GAM(J,TR)* 
+     *  (DELTA_AUV/AUV_AV))
+c set K(J) = 0 to exclude IP
+      IF(ISTELLAR.EQ.0) K(J) = 0.0
+
+
+c calculate internal stellar photon rates at RSCALE (50 R*) - using detailed cross-sections
+      ELSE IF(RTYPE(J).EQ.5) THEN
+      K(J) = ((RSCALE/DIST)**2)*ALF(J,TR)*EARG(-GAM(J,TR)*
+     *  (DELTA_AUV/AUV_AV))
+c set K(J) = 0 to exclude inner stellar PHOTONS
+      IF (ISTELLAR.EQ.0) K(J) = 0.0
+C
+
+c calculate internal BINARY COMPANION photon rates at RSCALE (50 RSTAR) - scale to integrated flux relative to ISM value
+c (2./pi) scales the rate to the average disk surface area seen by a point at an angle theta
+C average = 2r^2, not pi*r^2
+
+      ELSE IF(RTYPE(J).EQ.6) THEN
+      K(J) = GBIN*((RSCALE/DIST)**2)*ALF(J,TR)*
+     *  EARG(-GAM(J,TR)*(DELTA_AUV/AUV_AV))
+C RATE IS RESET IF IBIN = 1, IE A DISK COMPANION
+      IF(IBIN.EQ.1) K(J) = (2.0/PI)*K(J)
+c set K(J) = 0 to exclude companion photons
+      IF(IBIN.EQ.0) K(J) = 0.0
+c
+
+c calculate internal BINARY COMPANION photon rates at RSCALE (50 RSTAR) - using detailed cross-sections
+c (2./pi) scales the rate to the average disk surface area seen by a point at an angle theta
+C average = 2r^2, not pi*r^2
+      ELSE IF(RTYPE(J).EQ.7) THEN
+      K(J) = (((RBIN/R_STAR)**2)*(RSCALE/DIST)**2)*ALF(J,TR)*
+     *  EARG(-GAM(J,TR)*(DELTA_AUV/AUV_AV))
+C RATE IS RESET IF IBIN = 1, IE A DISK COMPANION
+      IF(IBIN.EQ.1) K(J) = (2.0/PI)*K(J)
+c set K(J) = 0 to exclude BINARY/DISK COMPANION photons
+      IF(IBIN.EQ.0) K(J) = 0.0
+C
+
+        
+        
+        
+      ELSE IF(RTYPE(J).EQ.8) THEN
+         IF (TBIN.EQ.4000.) THEN
+             K(J) = ((RBIN/R_STAR)**2)*((RSCALE/DIST)**2)*ALF(J,TR)*
+     *         EARG(-GAM(J,TR)*(DELTA_AUV/AUV_AV))
+C RATE IS RESET IF IBIN = 1, IE A DISK COMPANION
+            IF(IBIN.EQ.1) K(J) = (2.0/PI)*K(J)
+c set K(J) = 0 to exclude BINARY/DISK COMPANION photons
+             IF(IBIN.EQ.0) K(J) = 0.0
+C
+         ELSE IF (TBIN.EQ.6000.) THEN
+            K(J) = ((RSCALE/DIST)**2)*ALF(J,TR)*
+     *        EARG(-GAM(J,TR)*(DELTA_AUV/AUV_AV))
+C RATE IS RESET IF IBIN = 1, IE A DISK COMPANION
+            IF(IBIN.EQ.1) K(J) = (2.0/PI)*K(J)
+c set K(J) = 0 to exclude BINARY/DISK COMPANION photons
+            IF(IBIN.EQ.0) K(J) = 0.0
+C
+         ELSE IF (TBIN.EQ.10000.) THEN
+             K(J) = GBIN*((RSCALE/DIST)**2)*ALF(J,TR)*
+     *         EARG(-GAM(J,TR)*(DELTA_AUV/AUV_AV))
+C RATE IS RESET IF IBIN = 1, IE A DISK COMPANION
+            IF(IBIN.EQ.1) K(J) = (2.0/PI)*K(J)
+c set K(J) = 0 to exclude companion photons
+            IF(IBIN.EQ.0) K(J) = 0.0
+          END IF
+
+C  DEFAULT BINARY REACTION RATE
+      ELSE
+      K(J) = ALF(J,TR)*((TEMP/300.0)**BET(J,TR))*EARG(-GAM(J,TR)/TEMP)
+      END IF
+
+      END DO
+      
+
+
+
+
+C  SET CO PHOTODISSOCIATION RATE FOR EXTERNAL PHOTONS
+      K(ICOR) = GETCOR(H2COLEFF,Y(ICO),V,AUV)
+   
+C  SET CO PHOTODISSOCIATION RATE FOR STELLAR BB PHOTONS
+      K(ICOIP) = GETCOR(DELTA_H2COLEFF,Y(ICO),V,DELTA_AUV)/GE0
+      K(ICOIP) = K(ICOIP)*((RSCALE/DIST)**2)*ALF(ICOIP,TR)
+      IF(ISTELLAR.EQ.0) K(ICOIP) = 0.0     
+
+C  SET CO PHOTODISSOCIATION RATE FOR INTERNAL BINARY COMPANION PHOTONS
+      K(ICOAP) = GETCOR(DELTA_H2COLEFF,Y(ICO),V,DELTA_AUV)/GE0
+      K(ICOAP) = K(ICOAP)*((RBIN/R_STAR)**2)*((RSCALE/DIST)**2)*
+     *  ALF(ICOAP,TR)
+      
+      
+      
+C RATE IS RESET IF IBIN = 1, IE A DISK COMPANION
+      IF(IBIN.EQ.1) K(ICOAP) = (2.0/PI)*K(ICOAP)
+c set K(J) = 0 to exclude BINARY/DISK COMPANION photons
+      IF(IBIN.EQ.0) K(ICOAP) = 0.0
+            
+      
+      RETURN
+      END

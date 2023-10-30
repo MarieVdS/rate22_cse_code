@@ -1,0 +1,12 @@
+#!/bin/bash
+gfortran -c -O2 code/csmain.f -fbounds-check -fno-align-commons
+gfortran -c -O2 code/acodes.f -fbounds-check -fno-align-commons
+gfortran -c -O2 code/dvode.f -fbounds-check -fno-align-commons
+gfortran -c -O2 code/cssubs.f -fbounds-check -fno-align-commons	
+gfortran -c -O2 code/csrates.f -fbounds-check -fno-align-commons
+gfortran -c -O2 code/csanalyse.f -fbounds-check -fno-align-commons
+
+gfortran -o csmodel csmain.o csrates.o dvode.o cssubs.o acodes.o csanalyse.o -fbounds-check -fno-align-commons  -Wimplicit-procedure
+
+# gfortran-6 -std=legacy -ffixed-form  -w -O3 -o csmodel code/csmain.f code/acodes.f code/csrates.f code/dvode.f code/cssubs.f code/csanalyse.f 
+# gfortran -std=legacy -ffixed-form  -w -O3 -o csmodel code/csmain.f code/acodes.f code/csrates.f code/dvode.f code/cssubs.f code/csanalyse.f 
