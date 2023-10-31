@@ -8,5 +8,6 @@ gfortran -c -O2 code/csanalyse.f -fbounds-check -fno-align-commons
 
 gfortran -o csmodel csmain.o csrates.o dvode.o cssubs.o acodes.o csanalyse.o -fbounds-check -fno-align-commons  -Wimplicit-procedure
 
+rm csmain.o csrates.o dvode.o cssubs.o acodes.o csanalyse.o
 # gfortran-6 -std=legacy -ffixed-form  -w -O3 -o csmodel code/csmain.f code/acodes.f code/csrates.f code/dvode.f code/cssubs.f code/csanalyse.f 
 # gfortran -std=legacy -ffixed-form  -w -O3 -o csmodel code/csmain.f code/acodes.f code/csrates.f code/dvode.f code/cssubs.f code/csanalyse.f 

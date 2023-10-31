@@ -46,11 +46,8 @@ RDUST = 2.0
 TBIN = 6000
 RBIN = 1.4E10
 !
-! SHIELDING FUNCTIONS CO AND N2
-FILECO = "/Users/marie/Chemistry/CSE/src-IP-AP-HNR/shielding/co/shield.03.5.69-557-36.dat"
-FILEN2 = "/Users/marie/Chemistry/CSE/src-IP-AP-HNR/n2/Tex_10K_bH2_3km.s-1_bH_5km.s-1_NH_1e+20cm-2.dat"
 ! INPUT AND OUTPUT FILE NAMES
-REACTIONS_FILE = "/Users/marie/Chemistry/CSE/src-IP-AP-HNR/rates/rate16_IP_2330K_AP_6000K.rates"
-SPECIES_FILE = "/Users/marie/Chemistry/CSE/src-IP-AP-HNR/specs/rate16_IP_6000K_Htot.specs"
+REACTIONS_FILE = "/Users/marie/Chemistry/CSE/rate22_cse_code/rates/rate22_revised.rates"
+SPECIES_FILE = "/Users/marie/Chemistry/CSE/rate22_cse_code/specs/rate22_revised.specs"
 ! OUTPUT FILES CSFRAC_NAME.OUT AND CSNUM_NAME.OUT FOR FRACTIONAL ABUNDANCES AND NUMBER DENSITIES
-OUTPUT_FOLDER = ""
+OUTPUT_FOLDER = "/Users/marie/Chemistry/CSE/rate22_cse_code/"

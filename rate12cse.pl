@@ -107,19 +107,23 @@ $nsp=$ct-1;
 
 %mel= (
        "H" => 1,
+       "He" => 4,
        "C" => 12,
        "T" => 13,
        "N" => 14,
        "O" => 16,
        "X" => 18,
        "F" => 19,
+       "Na" => 23,
        "Mg" => 24,
+       "Al" => 27,
+       "Si" => 28,
        "P" => 31,
        "S" => 32,
-       "He" => 4,
-       "Si" => 28,
        "Cl" => 35,
-       "Na" => 23,
+       "Ca" => 40,
+       "Ar" => 40,
+       "Ti" => 48,
        "Fe" => 56
        );
 
@@ -502,7 +506,10 @@ print SPEC  " 9999 Conserved:\n";
 foreach $it (@csp) {
     $i++;
     if($it eq "e-"){$initval=0.0}
-    if($it eq "H2"){$initval=1.0}
+#     If abundances are expressed relative to H2
+#     if($it eq "H2"){$initval=1.0}
+#     If abundances are expressed relative to H
+    if($it eq "H2"){$initval=0.5}
     printf SPEC " %4d %-12s %8.2E\n", ($i,$it,$initval);
 }
 
@@ -569,7 +576,7 @@ sub headerPlusFooter {
     print FORT <<_EOT_
       DOUBLE PRECISION Y,YDOT,MLOSS,V
       INTEGER N
-      DIMENSION YDOT(N)
+      DIMENSION Y(N),YDOT(N)
       COMMON/BL2/ MLOSS,V
       DO 20 I=1,N
       YDOT(I)=(1.0/V)*YDOT(I)
@@ -600,15 +607,22 @@ _EOM_
 sub parents {
 print SPEC <<_EOA_
  9999 Parents:
-He    1.5E-1
-C2H2  8.0E-5
-CH4   2.0E-6
-H2S   1.0E-6
-HCN   2.0E-5
-NH3   2.0E-6
-CO    6.0E-4
-CS    4.0E-6
-N2    2.0E-4
-Mg    1.0E-5
+He    0.85E-1
+CO    1.50E-04
+N2    2.00E-05
+H2O   1.075E-04
+HCN   1.295E-07
+CO2   1.50E-07
+NH3   3.125E-07
+SO    1.53E-06
+CS    2.785E-08
+H2S   0.875E-05
+SO2   1.86E-06
+SiO   1.355E-05
+SiS   4.765E-07
+PO    3.875E-08
+PN    0.75E-08
+Cl    0.50E-08
+F     0.50E-08
 _EOA_
 }
