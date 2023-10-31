@@ -1,53 +1,50 @@
 ! INPUT PARAMETERS FOR THE RATE13_CSE_MODEL
 !
 ! PHYSICAL PARAMETERS OF THE CIRCUMSTELLAR ENVELOPE
-R_STAR = 2.0e13
-T_STAR = 2330
-MLOSS = 2e-05
-VELOCITY = 14.5e5
-TEMPMODE = EPSILON
-EPSILON_TEMP_LAW = 0.7
-R_EPSIL = 2.0e13
+R_STAR = 2.0e13         # cm
+T_STAR = 2330           # K
+MLOSS = 2e-05           # Msun/yr
+VELOCITY = 14.5e5       # cm/s
+EPSILON_TEMP_LAW = 0.7  # power for temperature power law
 !
 ! GRAIN PARAMETERS FOR H2 FORMATION AND CR IONISATION
-A_G = 1.0E-5 CM
-X_G = 1.5e-12
-ALBEDO = 0.5
-ZETA = 1
-GAMCO = 3
-AUV_AV = 4.65
+A_G = 1.0E-5            # Dust grain size,  cm
+X_G = 1.5e-12           # Dust grain density, cm-3
+ALBEDO = 0.5            # Dust albedo
+ZETA = 1                # Cosmic ray scaling factor
+GAMCO = 3               # check with Tom
+AUV_AV = 4.65           # Ratio dust extinction at UV/visible wavelengths
 !
 ! RADIUS INFORMATION
-R_INNER_CHEM = 1e14
-R_OUTER_CHEM = 5e17
-RESOLUTION = 0.05
+R_INNER_CHEM = 1e14     # Starting radius, cm
+R_OUTER_CHEM = 5e17     # End radius, cm
+RESOLUTION = 0.05       # Logarithmic stepsize
 !
 ! ANALYSE SUBROUTINE
-PERFORM_ROUTINE = 0
-ROUTINE_RADIUS = 0
-FULL_ANALYSIS = 0
-SENSITIVITY = 0
+PERFORM_ROUTINE = 0     # Perform analysis routine
+ROUTINE_RADIUS = 0      # Radius at which to perform analysis routine 
+FULL_ANALYSIS = 0       # Or, perform routine at each radius
+SENSITIVITY = 0.01      # Sensitivity of analysis routine
 !
 ! DVODE
-RTOL = 1e-05
-ATOL = 1e-25
+RTOL = 1e-05            # Relative tolerance of the ODE solver
+ATOL = 1e-25            # Absolute tolerance of the ODE solver
 !
 ! CLUMPING PARAMETERS
-CLUMPMODE = SMOOTH
-FVOL = 0.2
-L = 1e12
-FIC = 0.0
+CLUMPMODE = SMOOTH      # SMOOTH or POROSITY
+FVOL = 0.2              # Volume filling factor of the porous outflow
+L = 1e12                # Size of the clumps at R* of the porous outflow
+FIC = 0.0               # Interclump density contrast of the porous outflow
 !
 ! INNER PHOTONS
-ISTELLAR = 0
-IBIN = 0
-RSCALE = 50
-RDUST = 2.0
-TBIN = 6000
-RBIN = 1.4E10
+ISTELLAR = 0            # Include stellar UV photons
+IBIN = 0                # Include closeby stellar companion UV photons
+RDUST = 2.0             # Dust condensation radius
+TBIN = 6000             # Surface temperature of the companion (4000, 6000, 10 000 K)
+RBIN = 1.4E10           # Radius of the companion, cm (needs to match companion!)
 !
 ! INPUT AND OUTPUT FILE NAMES
-REACTIONS_FILE = "/Users/marie/Chemistry/CSE/rate22_cse_code/rates/rate22_revised.rates"
-SPECIES_FILE = "/Users/marie/Chemistry/CSE/rate22_cse_code/specs/rate22_revised.specs"
+REACTIONS_FILE = "/Users/marie/Chemistry/CSE/rate22_cse_code/rate22_revised.rates"
+SPECIES_FILE = "/Users/marie/Chemistry/CSE/rate22_cse_code/rate22_revised.specs"
 ! OUTPUT FILES CSFRAC_NAME.OUT AND CSNUM_NAME.OUT FOR FRACTIONAL ABUNDANCES AND NUMBER DENSITIES
 OUTPUT_FOLDER = "/Users/marie/Chemistry/CSE/rate22_cse_code/"
