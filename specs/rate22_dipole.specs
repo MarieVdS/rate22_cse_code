@@ -1,0 +1,277 @@
+  No. Species     Mass  Dipole  Reference
+   12 CH             13   1.46 cdms                                                                                                
+   13 CH+            13   1.60 jpl                                                                                                 
+   16 CH2            14   0.57 cdms                                                                                                
+   22 NH             15   1.39 cdms                                                                                                
+   24 NH2            16   1.82 cdms                                                                                                
+   30 OH-            17   1.04 cdms                                                                                                
+   32 OH+            17   2.26 cdms                                                                                                
+   33 NH3            17   1.47 cdms                                                                                                
+   34 OH             17   1.66 cdms                                                                                                
+   36 H2O+           18   2.40 cdms                                                                                                
+   38 H2O            18   1.85 jpl                                                                                                 
+   41 H3O+           19   1.44 cdms                                                                                                
+   43 HF             20   1.83 jpl                                                                                                 
+   44 H2F+           21   2.59 cdms                                                                                                
+   54 C2H            25   0.77 cdms                                                                                                
+   55 CN             26   1.45 cdms                                                                                                
+   56 CN-            26   0.65 cdms                                                                                                
+   61 HCN            27   2.99 cdms                                                                                                
+   62 HNC            27   3.05 cdms                                                                                                
+   63 C2H3+          27   1.14 cdms                                                                                                
+   66 C2H3           27   1.50 Rate06                                                                                              
+   69 AlH            28   0.19 cdms                                                                                                
+   70 CO+            28   2.61 cdms                                                                                                
+   71 H2NC           28   3.83 cdms                                                                                                
+   73 H2CN           28   2.54 cdms                                                                                                
+   75 HCNH+          28   0.29 cdms                                                                                                
+   77 CO             28   0.11 cdms                                                                                                
+   83 HOC+           29   2.77 cdms                                                                                                
+   84 SiH+           29   0.45 cdms                                                                                                
+   85 HCO+           29   3.90 cdms                                                                                                
+   86 C2H5           29   0.30 Woon D & Herbst E ApJS, 185, 273 (2009)                                                             
+   87 N2H+           29   3.40 cdms                                                                                                
+   90 HCO            29   1.36 jpl                                                                                                 
+   91 CH2NH          29   1.97 cdms                                                                                                
+   92 SiH            29   0.09 cdms                                                                                                
+   96 CH3NH          30   1.93 Puzzarini C et al MNRAS, 496, 4298 (2020)                                                           
+   98 CH2NH2         30   1.06 Puzzarini C et al MNRAS, 496, 4298 (2020)                                                           
+   99 NO             30   0.16 cdms                                                                                                
+  101 H2CO           30   2.33 cdms                                                                                                
+  104 NO+            30   0.37 cdms                                                                                                
+  105 SiH2           30   0.18 Rate06                                                                                              
+  107 CH2OH          31   1.47 cdms                                                                                                
+  111 H2COH+         31   2.25 cdms                                                                                                
+  112 HNO            31   1.67 jpl                                                                                                 
+  113 SiH3           31   0.01 Woon D & Herbst E ApJS, 185, 273 (2009)                                                             
+  114 CH3O           31   2.12 jpl                                                                                                 
+  116 CF+            31   1.07 cdms                                                                                                
+  118 CH3NH2         31   1.29 jpl                                                                                                 
+  120 PH             32   0.40 cdms                                                                                                
+  124 CH3OH          32   1.70 cdms                                                                                                
+  135 HS             33   0.76 cdms                                                                                                
+  136 O2H            33   2.09 jpl                                                                                                 
+  138 PH2            33   0.60 cdms                                                                                                
+  139 HS+            33   1.29 cdms                                                                                                
+  141 PH3            34   0.57 jpl                                                                                                 
+  146 H2O2           34   1.57 jpl                                                                                                 
+  152 HCl            36   1.11 jpl                                                                                                 
+  155 HCl+           36   1.75 jpl                                                                                                 
+  156 C3H            37   3.59 cdms                                                                                                
+  158 H2Cl+          37   1.89 cdms                                                                                                
+  159 C3H+           37   3.00 cdms                                                                                                
+  160 C3H2           38   3.27 cdms                                                                                                
+  164 H2CCC          38   4.10 cdms                                                                                                
+  165 C2N            38   0.43 cdms                                                                                                
+  167 HCCN           39   3.04 cdms                                                                                                
+  168 H2CCCH+        39   0.55 Silva W et al A&A, 676, L1 (2023)                                                                   
+  170 CH2CCH         39   0.14 cdms                                                                                                
+  171 C2O            40   1.31 jpl                                                                                                 
+  175 MgO            40   6.04 cdms                                                                                                
+  178 CH3CCH         40   0.78 cdms                                                                                                
+  179 SiC            40   1.70 cdms                                                                                                
+  182 CH2CN          40   3.50 cdms                                                                                                
+  185 CH3CN          41   3.92 cdms                                                                                                
+  188 HCCO           41   6.04 cdms                                                                                                
+  189 ArH+           41   2.18 cdms                                                                                                
+  193 HCSi           41   0.07 Rate06                                                                                              
+  195 MgOH           41   1.40 cdms                                                                                                
+  196 CH2CO          42   1.42 cdms                                                                                                
+  200 OCN            42   0.64 cdms                                                                                                
+  202 CH3CHCH2       42   0.36 cdms                                                                                                
+  203 CH3CNH+        42   1.01 cdms                                                                                                
+  206 SiCH2          42   0.18 cdms                                                                                                
+  207 SiN            42   2.56 cdms                                                                                                
+  208 SiCH3          43   0.65 Rate06                                                                                              
+  209 CP             43   0.86 Rate06                                                                                              
+  210 CH3CO+         43   3.50 Cernicharo J et al, A&A, 646, L7 (2021)                                                             
+  212 HONC           43   3.13 cdms                                                                                                
+  214 HNSi           43   0.25 cdms                                                                                                
+  216 HOCN           43   3.70 cdms                                                                                                
+  217 HCNO           43   3.10 cdms                                                                                                
+  220 HNCO           43   2.06 cdms                                                                                                
+  224 AlO            43   4.39 cdms                                                                                                
+  228 H2NCO+         44   4.13 cdms                                                                                                
+  231 CH2CHOH        44   1.03 cdms                                                                                                
+  233 CS+            44   3.10 cdms                                                                                                
+  234 SiO            44   3.09 cdms                                                                                                
+  237 AlOH           44   1.04 jpl                                                                                                 
+  240 N2O            44   0.16 jpl                                                                                                 
+  243 CH3CHO         44   2.73 jpl                                                                                                 
+  244 HCP            44   0.39 cdms (jpl value 0.039 incorrect)                                                                    
+  245 CS             44   1.96 jpl                                                                                                 
+  249 HSiO           45   3.39 cdms                                                                                                
+  250 PN             45   2.75 cdms                                                                                                
+  251 CH2CH2OH       45   1.82 Tinacci L et al, ApJS, 266, 38 (2023                                                                
+  252 HCS+           45   1.96 cdms                                                                                                
+  254 HCO2+          45   3.24 cdms                                                                                                
+  255 CH3CHOH        45   1.69 Tinacci L et al, ApJS, 266, 38 (2023)                                                               
+  257 NH2CHO         45   3.72 jpl                                                                                                 
+  262 HCS            45   0.98 cdms                                                                                                
+  266 CH3OCH2        45   1.44 Tinacci L et al, ApJS, 266, 38 (2023                                                                
+  267 AlF            46   1.44 cdms                                                                                                
+  269 C2H5OH         46   1.44 cdms                                                                                                
+  271 NS             46   1.81 cdms                                                                                                
+  274 HCOOH          46   1.44 cdms                                                                                                
+  275 H2SiO          46   3.82 cdms                                                                                                
+  280 NS+            46   2.17 cdms                                                                                                
+  282 H2CS           46   1.65 cdms                                                                                                
+  283 CH3OCH3        46   1.30 cdms                                                                                                
+  284 NO2            46   0.32 jpl                                                                                                 
+  290 PO+            47   3.44 jpl                                                                                                 
+  293 CCl+           47   0.16 cdms                                                                                                
+  295 CCl            47   1.40 Woon D & Herbst E ApJS, 185, 273 (2009)                                                             
+  296 PO             47   1.88 cdms                                                                                                
+  305 SO             48   1.54 cdms                                                                                                
+  306 MgC2           48   7.90 cdms                                                                                                
+  307 CH3SH          48   1.52 cdms                                                                                                
+  308 HPO            48   2.35 cdms                                                                                                
+  312 C4H-           49   6.19 cdms                                                                                                
+  314 C4H            49   2.10 cdms                                                                                                
+  320 MgC2H          49   1.68 cdms                                                                                                
+  322 NaCN           49   8.85 cdms                                                                                                
+  323 C3N            50   2.85 cdms                                                                                                
+  326 C3N-           50   3.10 cdms                                                                                                
+  328 C4H2           50   4.46 Oswald M & Botschwina P, J Mol Spec, 169, 181 (1995) - for cumulene H2CCC                                              
+  331 MgNC           50   5.22 cdms                                                                                                
+  332 MgCN           50   5.30 Ziurys L et al ApJ, 445, L47 (1995)                                                                 
+  333 CH3Cl          50   1.90 jpl                                                                                                 
+  338 HNC3           51   5.67 cdms                                                                                                
+  341 HMgNC          51   3.49 cdms                                                                                                
+  342 HC3N           51   3.73 cdms                                                                                                
+  343 ClO            51   1.30 jpl                                                                                                 
+  344 HCCNC          51   2.93 jpl                                                                                                 
+  348 HCCNCH+        52   3.45 cdms                                                                                                
+  351 HC3NH+         52   1.61 cdms                                                                                                
+  352 SiC2           52   2.39 cdms                                                                                                
+  353 CH2CHCCH       52   0.43 cdms                                                                                                
+  354 C3O            52   2.39 cdms                                                                                                
+  358 HC3O+          53   3.26 cdms                                                                                                
+  359 CH2CHCN        53   3.95 cdms                                                                                                
+  361 HC3O           53   2.39 cdms                                                                                                
+  362 SiC2H          53   1.40 cdms                                                                                                
+  364 NCCNH+         53   6.45 cdms                                                                                                
+  366 SiC2H2         54   0.92 cdms                                                                                                
+  369 HCCCHO         54   2.78 cdms                                                                                                
+  372 CH2CHCNH+      54   2.09 cdms                                                                                                
+  373 SiNC           54   2.00 cdms                                                                                                
+  376 CCP            55   3.35 cdms                                                                                                
+  379 C2H5CN         55   4.04 cdms                                                                                                
+  380 HCOCN          55   2.83 cdms                                                                                                
+  384 C2S            56   2.88 cdms                                                                                                
+  390 CH2CHCHO       56   3.11 cdms                                                                                                
+  394 CaO            56   8.87 cdms                                                                                                
+  398 CH3NCO         57   2.88 cdms                                                                                                
+  399 CaOH           57   1.47 cdms                                                                                                
+  400 HCCS           57   1.29 cdms                                                                                                
+  401 HC2S+          57   2.29 cdms                                                                                                
+  406 CH3COCH3       58   2.93 jpl                                                                                                 
+  407 NaCl           58   9.00 cdms                                                                                                
+  408 NCS            58   2.45 cdms                                                                                                
+  411 H2CCS          58   1.01 cdms                                                                                                
+  419 HSCN           59   3.33 cdms                                                                                                
+  420 HNCS           59   1.92 cdms                                                                                                
+  422 CH3COOH        60   1.70 cdms                                                                                                
+  425 HCOOCH3        60   1.77 jpl                                                                                                 
+  427 HOCHCHOH       60   2.06 Melosso M et al Chem Comm, 58, 2750 (2022)                                                          
+  429 SiS            60   1.74 cdms                                                                                                
+  431 SiO2           60   0.50 ate06                                                                                               
+  436 HOCH2CHO       60   2.33 cdms                                                                                                
+  438 TiO            60   3.34 cdms                                                                                                
+  442 OCS            60   0.72 cdms                                                                                                
+  444 HSiS           61   2.06 cdms                                                                                                
+  447 C5H+           61   2.88 Botschwina P JCP, 95, 4360 (1991)                                                                   
+  449 C3CCH          61   3.39 cdms                                                                                                
+  456 C5H            61   4.88 cdms                                                                                                
+  457 H2SiS          62   2.67 cdms                                                                                                
+  458 C4N            62   0.13 cdms                                                                                                
+  459 AlCl           62   1.63 cdms                                                                                                
+  460 C3HCCH         62   3.54 cdms                                                                                                
+  465 C5H2           62   5.90 cdms                                                                                                
+  467 HC4N           63   4.33 cdms                                                                                                
+  476 C4O            64   2.58 jpl                                                                                                 
+  477 CH3C4H         64   1.21 cdms                                                                                                
+  483 SiC3           64   4.80 cdms                                                                                                
+  484 CH2C3N         64   4.43 cdms                                                                                                
+  485 SO2            64   1.63 cdms                                                                                                
+  487 H2CCCHCCH      64   0.63 cdms                                                                                                
+  490 H2CCCHCN       65   4.28 cdms                                                                                                
+  494 CH3C3N         65   4.75 cdms                                                                                                
+  495 HCCCH2CN       65   3.61 McGuire B et al, ApJL, 900, L10 (2020)                                                              
+  498 HS2            65   1.40 Rate06                                                                                              
+  499 SiC3H          65   0.77 cdms                                                                                                
+  500 HC4O           65   1.73 cdms                                                                                                
+  501 HOSO+          65   1.81 cdms                                                                                                
+  507 C5H6           66   0.42 cdms                                                                                                
+  510 H2S2           66   1.10 cdms                                                                                                
+  515 CH3CHCHCN      67   3.74 Beaudet R A, JCP, 38, 2548 (1963) mu_a for cis-crotononitrile                                       
+  517 C3P            67   2.77 Rate06                                                                                              
+  521 C3S            68   3.70 cdms                                                                                                
+  523 HC3S+          69   1.73 cdms                                                                                                
+  524 HC3S           69   1.76 cdms                                                                                                
+  528 HCSC2H         70   1.85 cdms                                                                                                
+  529 H2CCCS         70   2.06 cdms                                                                                                
+  531 HCSCN          71   2.64 cdms                                                                                                
+  534 FeO            72   4.08 cdms                                                                                                
+  539 MgC4H          73   2.12 cdms                                                                                                
+  540 C6H            73   5.54 cdms                                                                                                
+  541 C6H-           73   8.20 cdms                                                                                                
+  546 MgC3N          74   6.38 cdms                                                                                                
+  548 C5N-           74   5.23 cdms                                                                                                
+  549 C6H2           74   6.20 cdms                                                                                                
+  550 C5N            74   3.39 cdms                                                                                                
+  554 HC4NC          75   3.57 Cernicharo J et al, A&A, 642, L8 (2020)                                                             
+  555 HC5N           75   4.33 cdms                                                                                                
+  557 HC5NH+         76   3.26 cdms                                                                                                
+  560 C5O            76   4.06 jpl                                                                                                 
+  561 SiC4           76   6.42 cdms                                                                                                
+  563 TiO2           76   6.33 cdms                                                                                                
+  564 C6H4           76   1.38 cdms                                                                                                
+  568 HC5O           77   2.16 cdms                                                                                                
+  571 H2CCHC3N       77   5.09 cdms                                                                                                
+  573 HCCCHCHCN      77   4.24 Lee K et al ApJ, 908, 41 (2021)                                                                     
+  577 NC4NH+         77   9.10 cdms                                                                                                
+  588 C4P            79   4.18 Rate06                                                                                              
+  591 C4S            80   4.03 cdms                                                                                                
+  593 HC4S           81   1.45 cdms                                                                                                
+  599 C7H            85   5.95 cdms                                                                                                
+  602 C7H2           86   7.70 cdms                                                                                                
+  605 CH3C6H         88   1.50 cdms                                                                                                
+  607 C6O            88   3.63 jpl                                                                                                 
+  609 H2CCCHC4H      88   0.95 Cabezas C - private communication via M Agundez 6 July 22                                           
+  610 H2CCCHC3N      89   5.15 Cabezas C - private communication via M Agundez 6 July 22                                           
+  614 CH3C5N         89   5.40 cdms                                                                                                
+  615 HC6O           89   1.77 Mohamed S et al, JPC, 123, 234301 (2005)                                                            
+  617 C5H5CCH        90   1.02 Cernicharo J et al A&A, 655, L1 (2021) average of 1- and 2-ECP                                      
+  621 C5H4CCH2       90   0.69 cdms                                                                                                
+  624 C5H5CN         91   4.36 McCarthy M C et al Nat Ast, 5, 176 (2021)                                                           
+  626 C5S            92   4.65 Cernicharo J et al A&A, 648, L3 (2021)                                                              
+  633 C8H-           97  10.40 cdms                                                                                                
+  634 C8H            97   6.50 cdms                                                                                                
+  635 MgC6H          97   2.50 cdms                                                                                                
+  638 MgC5N          98   7.30 cdms                                                                                                
+  639 C7N-           98   7.55 cdms                                                                                                
+  641 C8H2           98   8.20 cdms                                                                                                
+  642 C7N            98   3.00 Rate06                                                                                              
+  648 HC7N           99   4.82 cdms                                                                                                
+  653 C7O           100   4.42 jpl                                                                                                 
+  654 HC7NH+        100   6.40 cdms                                                                                                
+  658 HC7O          101   2.17 cdms                                                                                                
+  659 C6H5CCH       102   0.66 cdms                                                                                                
+  665 C6H5CN        103   4.52 cdms                                                                                                
+  671 C9H           109   7.00 cdms                                                                                                
+  673 C9H2          110   9.70 ate06                                                                                               
+  677 CH3C8H        112   1.75 cdms                                                                                                
+  679 C8O           112   4.63 jpl                                                                                                 
+  681 HC8O          113   1.84 Mohamed S et al, JPC, 123, 234301 (2005)                                                            
+  683 CH3C7N        113   6.63 Woon D & Herbst E ApJS, 185, 273 (2009)                                                             
+  690 C10H-         121  12.70 cdms                                                                                                
+  691 MgC8H         121   2.90 est by extrapolation                                                                                
+  693 C10H          121   7.50 cdms                                                                                                
+  695 MgC7N         122   8.30 est by extrapolation                                                                                
+  696 C9N           122   3.30 Rate06                                                                                              
+  703 HC9N          123   5.20 cdms                                                                                                
+  707 C9O           124   5.42 jpl                                                                                                 
+  711 HC9O          125   2.67 Mohamed S et al, JPC, 123, 234301 (2005)                                                            
+  725 CH3C9N        137   6.50 cdms                                                                                                
+  732 HC11N         147   5.47 cdms                                                                                                
