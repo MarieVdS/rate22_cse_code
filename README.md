@@ -76,8 +76,7 @@ If you have any comments or isues, please contact Marie Van de Sande at "mvdsand
 
 ## Acknowledgements
 
-The code is free to use. Please cite [the Rate22 paper](http://umistdatabase.net/)
-- [Insert citation later]
+The code is free to use. Please cite [the Rate22 paper](http://umistdatabase.net/) [Insert citation later]
 When including the effects of a clumpy outflow or internal photons, please also cite the relevant papers. 
 - Clumping: [Van de Sande et al., 2018, A&A, 631, A106](https://ui.adsabs.harvard.edu/abs/2018A&A...616A.106V/abstract)
 - Stellar UV photons: [Van de Sande & Millar, 2019, ApJ, 873, 36](https://ui.adsabs.harvard.edu/abs/2019ApJ...873...36V/abstract)
