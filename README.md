@@ -33,13 +33,13 @@ Note that the standard ODEs (`code/acodes.f`) do not include any internal photon
 ## Running a model
 
 The model takes input from an input file.
-The command `./csmodel (inputfile)' calculates your desired model.
+The command `./csmodel (inputfile)` calculates your desired model.
 
 ## Adding inner photoreactions
 
-The photoreactions from an internal stellar and companion UV source can be found on the [website](http://umistdatabase.net/).
+The photoreactions from an internal stellar and companion UV source are listed in `IP.rates` (AGB star) and `AP_4000K.rates`, `AP_6000K.rates`, and `AP_10000K.rates` (stellar companion).
 If you want to include these, please follow these steps:
-1. Add the desired reactions to a new `.rates` file
+1. Add the desired reactions to `rate22_revised.rates`, creating a new `.rates` file
 2. Write a new ODE file using `./rate12cse.pl (name of your new rates file) -o acodes.f`
 3. Move `acodes.f` to the `code/` folder and recompile the model
 4. The perl script also writes a new `.specs` file. It works in mysterious ways, more likely than not the order of the species is changed. Make sure to use this `.specs` file!
@@ -71,6 +71,8 @@ More information can be found in [Van de Sande et al. 2018](https://ui.adsabs.ha
   - `RDUST` is the dust condensation radius. Dust formation isn't included in the model, this is the radius where the dust is assumed to have fully formed. 
   The starting radius `R_INNER_CHEM` cannot be smaller or equal to `RDUST`. For best results, choose the initial radius as close to `RDUST` as possible.
 
+  
+  
 ### Parent species
 The parent species are listed at the bottom of the `.specs` file.
 Their units are fractional abundance relative to H.
