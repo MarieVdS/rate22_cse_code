@@ -23,9 +23,7 @@ This release includes the effects of
 - A `.specs` file, containing all species and parent abundances: `rate22_revised.specs`. 
 - A perl script to compile new ODEs: `rate12cse.pl`.
 - A test input file, `test_input.txt`.
-
-A `.rates` file excluding the reactions identified by [Tinnaci et al. (2021)](https://ui.adsabs.harvard.edu/abs/2023ApJS..266...38T/abstract) as endothermic (done by putting their rates to zero) can be found on the [website](http://umistdatabase.net/).
-
+- A file listing dipole moments, `rate22_dipole.specs`.
 
 ### Compiling the model
 Running `./my_makefile` compiles the code to the executable `csmodel`. Note that a fortran compiler (e.g., gfortran) is necessary to do so.
