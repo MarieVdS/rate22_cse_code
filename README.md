@@ -51,7 +51,7 @@ If you want to include these, please follow these steps:
 The input parameters and their units are listed in `test_input.txt`. It's essential that you keep the basic format of the input file.
 
 Special care needs to be taken with
-1. The clumping parameters
+**1. The clumping parameters**
   - `CLUMPMODE` should be either `SMOOTH` for a smooth outflow (classical CSE model) or `POROSITY` for a clumpy (porous) model.
   - `FVOL` is the clump volume filling factor, setting raction of the total volume occupied by the clumps. 
   Therefore, 0 < `FVOL` < 1. `FVOL = 0` will result in an error, `FVOL = 1` is equivalent to a smooth outflow.
@@ -62,7 +62,7 @@ Special care needs to be taken with
 The porosity formalism implemented in the model assumes a constant `FVOL`, which results in uniformly expanding clumps. 
 More information can be found in [Van de Sande et al. 2018](https://ui.adsabs.harvard.edu/abs/2018A&A...616A.106V/abstract)
 
-2. The inner photon parameters
+**2. The inner photon parameters**
   - `ISTELLAR` and `IBIN` turn stellar and companion UV photons on and off.
   - When turning on `IBIN`, the type of stellar companion needs to be specified. Make sure to match the companion's radius to its temperature:
     - Red dwarf companion: `RBIN` = 1.53e10 cm, `TBIN` = 4000 K
