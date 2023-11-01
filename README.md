@@ -11,7 +11,13 @@ This release includes the effects of
 ## Contents
 - The FORTRAN77 code, located in the folder `code/`.
 - A makefile, `my_makefile`.
-- A `.rates` file, containing the chemical reaction network: `rate22_revised.rates`.
+- `.rates` files, containing the chemical reaction network. 
+  Pick either one of:
+  - `rate22_revised.rates` is the latest UDfA release.
+  - `rate22_G_revised.rates` excludes the reactions identified by [Tinnaci et al. (2021)](https://ui.adsabs.harvard.edu/abs/2023ApJS..266...38T/abstract) as endothermic (done by putting their rates to zero)
+  Optional:
+  - `IP.rates` lists the photoreaction rates caused by UV photons from the central AGB star (with an effective temperature of 2330 K, like IRC+10216)
+  - `AP_4000K.rates`, `AP_6000K.rates`, and `AP_10000K.rates` list the photoreaction rates caused by UV photons from a closeby stellar companion (with an effective temperature of 4000, 6000, or 10000 K). 
 - A `.specs` file, containing all species and parent abundances: `rate22_revised.specs`. 
 - A perl script to compile new ODEs: `rate12cse.pl`.
 - A test input file, `test_input.txt`.
@@ -21,12 +27,22 @@ A `.rates` file excluding the reactions identified by [Tinnaci et al. (2021)](ht
 
 ### Compiling the model
 Running `./my_makefile` compiles the code to the executable `csmodel`. Note that a fortran compiler (e.g., gfortran) is necessary to do so.
+Note that the standard ODEs (`code/acodes.f`) do not include any internal photons!
 
 
 ## Running a model
 
 The model takes input from an input file.
 The command `./csmodel (inputfile)' calculates your desired model.
+
+## Adding inner photoreactions
+
+The photoreactions from an internal stellar and companion UV source can be found on the [website](http://umistdatabase.net/).
+If you want to include these, please follow these steps:
+1. Add the desired reactions to a new `.rates` file
+2. Write a new ODE file using `./rate12cse.pl (name of your new rates file) -o acodes.f`
+3. Move `acodes.f` to the `code/` folder and recompile the model
+4. The perl script also writes a new `.specs` file. It works in mysterious ways, more likely than not the order of the species is changed. Make sure to use this `.specs` file!
 
 
 
@@ -59,14 +75,6 @@ More information can be found in [Van de Sande et al. 2018](https://ui.adsabs.ha
 The parent species are listed at the bottom of the `.specs` file.
 Their units are fractional abundance relative to H.
 
-## Adding inner photon reactions
-
-The photoreactions from an internal stellar and companion UV source can be found on the [website](http://umistdatabase.net/).
-If you want to include these, please follow these steps:
-1. Add the desired reactions to a new `.rates` file
-2. Write a new ODE file using `./rate12cse.pl (name of your new rates file) -o acodes.f`
-3. Move `acodes.f` to the `code/` folder and recompile the model
-4. The perl script also writes a new `.specs` file. It works in mysterious ways, more likely than not the order of the species is changed. Make sure to use this `.specs` file!
 
 
 

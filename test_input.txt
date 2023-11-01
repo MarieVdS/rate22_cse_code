@@ -12,7 +12,7 @@ A_G = 1.0E-5            # Dust grain size,  cm
 X_G = 1.5e-12           # Dust grain density, cm-3
 ALBEDO = 0.5            # Dust albedo
 ZETA = 1                # Cosmic ray scaling factor
-GAMCO = 3               # check with Tom
+GAMCO = 3               # Dust extinction CO (Huggins & Glassgold 1992)
 AUV_AV = 4.65           # Ratio dust extinction at UV/visible wavelengths
 !
 ! RADIUS INFORMATION
