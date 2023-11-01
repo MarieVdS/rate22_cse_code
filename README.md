@@ -12,10 +12,10 @@ This release includes the effects of
 - The FORTRAN77 code, located in the folder `code/`.
 - A makefile, `my_makefile`.
 - `.rates` files, containing the chemical reaction network. 
-  Pick either one of:
+Pick either one of:
   - `rate22_revised.rates` is the latest UDfA release.
   - `rate22_G_revised.rates` excludes the reactions identified by [Tinnaci et al. (2021)](https://ui.adsabs.harvard.edu/abs/2023ApJS..266...38T/abstract) as endothermic (done by putting their rates to zero)
-  Optional:
+Optional:
   - `IP.rates` lists the photoreaction rates caused by UV photons from the central AGB star (with an effective temperature of 2330 K, like IRC+10216)
   - `AP_4000K.rates`, `AP_6000K.rates`, and `AP_10000K.rates` list the photoreaction rates caused by UV photons from a closeby stellar companion (with an effective temperature of 4000, 6000, or 10000 K). 
 - A `.specs` file, containing all species and parent abundances: `rate22_revised.specs`. 
