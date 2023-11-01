@@ -51,6 +51,7 @@ If you want to include these, please follow these steps:
 The input parameters and their units are listed in `test_input.txt`. It's essential that you keep the basic format of the input file.
 
 Special care needs to be taken with
+
 **1. The clumping parameters**
   - `CLUMPMODE` should be either `SMOOTH` for a smooth outflow (classical CSE model) or `POROSITY` for a clumpy (porous) model.
   - `FVOL` is the clump volume filling factor, setting raction of the total volume occupied by the clumps. 
