@@ -44,7 +44,7 @@ TBIN = 6000             # Surface temperature of the companion (4000, 6000, 10 0
 RBIN = 1.4E10           # Radius of the companion, cm (needs to match companion!)
 !
 ! INPUT AND OUTPUT FILE NAMES
-REACTIONS_FILE = "/Users/marie/Chemistry/CSE/rate22_cse_code/rate22_revised.rates"
-SPECIES_FILE = "/Users/marie/Chemistry/CSE/rate22_cse_code/rate22_revised.specs"
+REACTIONS_FILE = "/Users/marie/Chemistry/CSE/rate22_cse_code/rate22_final.rates"
+SPECIES_FILE = "/Users/marie/Chemistry/CSE/rate22_cse_code/rate22_final.specs"
 ! OUTPUT FILES CSFRAC_NAME.OUT AND CSNUM_NAME.OUT FOR FRACTIONAL ABUNDANCES AND NUMBER DENSITIES
 OUTPUT_FOLDER = "/Users/marie/Chemistry/CSE/rate22_cse_code/"
