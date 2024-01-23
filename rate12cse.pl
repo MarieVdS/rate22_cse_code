@@ -91,6 +91,7 @@ foreach (@lines) {
 	} 
 	else {
 	    unless ($item eq "" || $item eq "PHOTON" || $item eq "CRPHOT" || 
+        $item eq "INPHOTON" || $item eq "ACPHOTON" ||
 		    $item eq "M" || $item eq "CRP" || exists $cons{$item}) {
 		$specs{$item}=$ct;
 		$ct++;
@@ -411,10 +412,21 @@ foreach $it (keys %dest) {
     }
 }
 foreach $it (keys %form) {
-    unless ($it eq "" || exists $dest{$it} || exists $cons{$it}) { 
+    unless ($it eq "CH2CO+" || exists $dest{$it} || exists $cons{$it}) { 
 	die "$0: [serious] species $it is never destroyed\n";
     }
 }
+
+
+###- CH2CO+ is only formed by companion photons.
+###- Still compile the ODE file (see exception above),
+###- but print this out
+foreach $it (keys %form) {
+    if ($it eq "CH2CO+" ) { 
+	print "$0: [serious] species $it is never destroyed\n";
+    }
+}
+
 
 # output section
 
